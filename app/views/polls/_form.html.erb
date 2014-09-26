@@ -10,8 +10,32 @@
       </ul>
     </div>
   <% end %>
+  <form class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <label for="inputEmail" class="control-label col-lg-3">Poll Question: &nbsp</label>
+      <div class="col-lg-9">
+        <%= f.text_area :question, :class => 'form-control', :placeholder =>"ex: Who is your favorite famous person?" %>
+      </div>
+
+      <label for="inputPassword" class="col-lg-3 control-label">Option 1: &nbsp</label>
+      <div class="col-lg-9">
+        <%= f.text_field :option_one, :class => 'form-control', :placeholder =>"ex: Betty White" %>
+      </div>
+
+      <label for="inputPassword" class="col-lg-3 control-label">Option 2: &nbsp</label>
+      <div class="col-lg-9">
+        <%= f.text_field :option_two, :class => 'form-control', :placeholder =>"ex: Tina Fey" %>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<br>
+<br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= link_to "+ option", "#", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to 'Back', polls_path, class: "btn btn-primary" %>
   </div>
 <% end %>

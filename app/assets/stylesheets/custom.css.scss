@@ -12,12 +12,7 @@
 
 @font-face {
         font-family: 'Harabara';
-        src: url('Harabara.otf') format("truetype");
-    }
-
-@font-face {
-        font-family: 'Opificio';
-        src: url('Opificio.ttf') format("truetype");
+        src: font-url('Harabara.otf') format("truetype");
     }
 
 html {	

@@ -8,6 +8,7 @@ class PollsController < ApplicationController
 
   # GET /polls/1
   def show
+    @poll = Poll.find(params[:id])
   end
 
   # GET /polls/new
@@ -24,7 +25,7 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
 
     if @poll.save
-      redirect_to @poll, notice: 'Poll was successfully created.'
+      redirect_to polls_path, notice: 'Poll was successfully created.'
     else
       render action: 'new'
     end
@@ -53,6 +54,6 @@ class PollsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poll_params
-      params[:poll]
+      params.require(:poll).permit(:id, :question, :option_one, :option_two, :option_three, :option_four, :option_five)
     end
 end

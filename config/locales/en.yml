@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes: 
+      poll:
+        question: "Question:"
+
+

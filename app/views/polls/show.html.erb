@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_poll_path(@poll) %> |
-<%= link_to 'Back', polls_path %>
+<h2>Here's your poll:</h2>
+<% @poll %>
+
+<img src="/assets/underconstruction.gif", alt="under construction" />
+
+<br>
+<br>
+<%= link_to 'Back', polls_path, :class => "btn btn-primary" %>

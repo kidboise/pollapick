@@ -1,7 +1,6 @@
 Pollapick::Application.routes.draw do
   get "users/new"
-  get "polls/new" => "polls#new", :as => "new_poll"
-  get "polls" => "polls#index", :as => "polls"
+  resources :polls
 
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

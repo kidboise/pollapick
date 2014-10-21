@@ -1,40 +1,22 @@
 <%= form_for(@poll) do |f| %> 
 
   <div class="form-group">
-    <label for="question" class="col-lg-3 control-label">Question: &nbsp</label>
-    <div class="col-lg-9">
+    <h3>Questions:</h3>
+    <div>
       <%= f.text_area :question, :class => 'form-control', :placeholder =>"ex: Who is the best famous person?" %>
     </div>
 
-    <label for="option_one" class="col-lg-3 control-label">Option 1: &nbsp</label>
-    <div class="col-lg-9">
-      <%= f.text_field :option_one, :class => 'form-control', :placeholder =>"ex: Betty White" %>
-    </div>
+    <%= f.fields_for @options do |ff| %>
 
-    <label for="option_two" class="col-lg-3 control-label">Option 2: &nbsp</label>
-    <div class="col-lg-9">
-      <%= f.text_field :option_two, :class => 'form-control', :placeholder =>"ex: Tina Fey" %>
-    </div>
+      <h3>Options:</h3>
+      <div>
+        <%= ff.text_field :option_text, :class => 'form-control', :placeholder =>"ex: Betty White" %>
+      </div>
 
-    <label for="option_three" class="col-lg-3 control-label">Option 3: &nbsp</label>
-    <div class="col-lg-9">
-      <%= f.text_field :option_three, :class => 'form-control', :placeholder =>"(add another option if you want)" %>
-    </div>
-
-    <label for="option_four" class="col-lg-3 control-label">Option 4: &nbsp</label>
-    <div class="col-lg-9">
-      <%= f.text_field :option_four, :class => 'form-control', :placeholder =>"(add another option if you want)" %>
-    </div>
-
-    <label for="option_five" class="col-lg-3 control-label">Option 5: &nbsp</label>
-    <div class="col-lg-9">
-      <%= f.text_field :option_five, :class => 'form-control', :placeholder =>"(add another option if you want)" %>
-    </div>
+    <% end %>
+    <br>
+    <%= f.submit nil, class: "btn btn-primary" %>
+    <%= link_to 'Back', root_path, class: "btn btn-primary" %>
   </div>
-  <br>
-  <br>
-
-  <%= f.submit nil, class: "btn btn-primary" %>
-  <%= link_to 'Back', root_path, class: "btn btn-primary" %>
 
 <% end %>

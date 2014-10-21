@@ -6,7 +6,8 @@
 
     <table class="center table-striped poll">
       <tr>
-        <th class="col-sm-6"><%= poll.option_one %> &nbsp</th>
+        <td class="col-sm-1">O</td>
+        <th class="col-sm-5"><%= poll.option_one %> &nbsp</th>
         <td class="col-sm-5">
           <div class="progress">
             <div class="progress-bar" style="width: 10%;"></div>
@@ -15,6 +16,7 @@
         <td class="col-sm-1">&nbsp 10% </td>
       </tr>
       <tr>
+        <td class="col-sm-1">O</td>
         <th><%= poll.option_two %> &nbsp</th>
         <td class="col-sm-5">
           <div class="progress">
@@ -25,6 +27,7 @@
       </tr>
       <% unless poll.option_three.empty? %>
         <tr>
+          <td class="col-sm-1">O</td>
           <th><%= poll.option_three %> &nbsp</th>
           <td class="col-sm-5">
           <div class="progress">
@@ -36,6 +39,7 @@
       <% end %>
       <% unless poll.option_four.empty? %>
         <tr>
+          <td class="col-sm-1">O</td>
           <th><%= poll.option_four %> &nbsp</th>
           <td class="col-sm-5">
           <div class="progress">
@@ -47,6 +51,7 @@
       <% end %>
       <% unless poll.option_five.empty? %>
         <tr>
+          <td class="col-sm-1">O</td>
           <th><%= poll.option_five %> &nbsp</th>
           <td class="col-sm-5">
           <div class="progress">

@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014022918) do
+ActiveRecord::Schema.define(version: 20141024043615) do
 
   create_table "options", force: true do |t|
     t.string   "option_text"
-    t.integer  "percentage"
+    t.integer  "picks",       default: 0
     t.integer  "poll_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -23,11 +23,6 @@ ActiveRecord::Schema.define(version: 20141014022918) do
 
   create_table "polls", force: true do |t|
     t.string   "question"
-    t.string   "option_one"
-    t.string   "option_two"
-    t.string   "option_three"
-    t.string   "option_four"
-    t.string   "option_five"
     t.integer  "updownvote"
     t.datetime "created_at"
     t.datetime "updated_at"

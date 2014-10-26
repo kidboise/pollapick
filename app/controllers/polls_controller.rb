@@ -14,7 +14,7 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     @poll = Poll.new
-    @options = @poll.options.build
+    2.times { @poll.options.build }
   end
 
   # GET /polls/1/edit
@@ -24,12 +24,14 @@ class PollsController < ApplicationController
   # POST /polls
   def create
     @poll = Poll.new(poll_params)
-
-    if @poll.save
-      redirect_to polls_path, notice: 'Poll was successfully created.'
+    if params[:add_option]
+      @poll.options.build
     else
-      render action: 'new'
+      @poll.save
+      flash[:notice] = "Poll is public!"
+      redirect_to polls_path and return
     end
+    render action: 'new'
   end
 
   # PATCH/PUT /polls/1
@@ -55,6 +57,8 @@ class PollsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poll_params
-      params.require(:poll).permit(:id, :question, :option_one, :option_two, :option_three, :option_four, :option_five)
+      params.require(:poll).permit(:id, :question,
+        options_attributes: [:id, :option_text, :percentage, :poll_id, :_destroy]
+      )
     end
 end

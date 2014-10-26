@@ -1,22 +1,23 @@
 <%= form_for(@poll) do |f| %> 
 
   <div class="form-group">
-    <h3>Questions:</h3>
+    <h3>Question:</h3>
     <div>
       <%= f.text_area :question, :class => 'form-control', :placeholder =>"ex: Who is the best famous person?" %>
     </div>
-
-    <%= f.fields_for @options do |ff| %>
-
-      <h3>Options:</h3>
-      <div>
-        <%= ff.text_field :option_text, :class => 'form-control', :placeholder =>"ex: Betty White" %>
-      </div>
-
+    
+    <h3>Options:</h3>
+    <%= f.fields_for :options do |ff| %>
+        <%= ff.text_field :option_text, :class => 'form-control', :placeholder =>"ex: Betty White" %>           
+        <br>
     <% end %>
+    <%= f.submit '+ Option', :name => "add_option", :class => "btn btn-primary" %>
+    <br>
     <br>
     <%= f.submit nil, class: "btn btn-primary" %>
     <%= link_to 'Back', root_path, class: "btn btn-primary" %>
   </div>
 
 <% end %>
+
+

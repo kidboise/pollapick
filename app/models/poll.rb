@@ -7,7 +7,9 @@ class Poll < ActiveRecord::Base
 		self.options.each do |option|
 			@picks << option.picks
 		end
-		@picks.sum
+		
+		@picks.sum 
+
 	end
 
 end

@@ -1,16 +1,17 @@
 <h2>All Polls</h2>
 <%= link_to 'New Poll', new_poll_path, :class => "btn btn-primary" %>
 <hr>
-<% @polls.each do |poll| %>
+<% @polls.order(created_at: :desc).each do |poll| %>
     <div class="poll">
       <h3><%= poll.question %></h3>
       <table class="center table-striped poll">
         <% poll.options.each do |option| %>
           <tr>
-            <td class="col-sm-1">
+            <td class="col-sm-2">
               <%= link_to 'pick', pick_option_path(id: option.id), method: :put, :class => "btn btn-xs btn-primary" %>
+              (<%= option.picks %>)
             </td>
-            <th class="col-sm-5"><%= option.option_text %> &nbsp</th>
+            <th class="col-sm-4"><%= option.option_text %> &nbsp</th>
             <td class="col-sm-5">
               <div class="progress">
                 <div class="progress-bar" style="width: <%= option.percentage %>%;"></div>
@@ -31,7 +32,7 @@
 <br>
 <br>
 
-All options currently in database:<br>
+<!-- All options currently in database:<br>
 <% Option.all.each do |option| %>
   <%= option.option_text %>  - Number of Picks: <%= option.picks %><br>
-<% end %>
+<% end %> -->

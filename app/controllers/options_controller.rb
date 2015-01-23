@@ -4,7 +4,11 @@ class OptionsController < ApplicationController
     @option = Option.find(params[:id])
     @option.picks += 1
     @option.save
-    redirect_to polls_path
+
+    respond_to do |format|
+	    format.js
+	    format.html { render :nothing => true, :notice => 'Picked!' }
+	  end
   end
 
  end

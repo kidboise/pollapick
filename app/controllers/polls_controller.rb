@@ -3,7 +3,7 @@ class PollsController < ApplicationController
 
   # GET /polls
   def index
-    @polls = Poll.all
+    @polls = Poll.all.sort_by { |poll| poll.updownvote }.reverse
   end
 
   # GET /polls/1
@@ -14,7 +14,7 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     @poll = Poll.new
-    2.times { @poll.options.build }
+    4.times { @poll.options.build }
   end
 
   # GET /polls/1/edit
@@ -47,6 +47,22 @@ class PollsController < ApplicationController
   def destroy
     @poll.destroy
     redirect_to polls_url, notice: 'Poll was successfully destroyed.'
+  end
+
+  def upvote
+    @poll = Poll.find(params[:id])
+    @poll.updownvote += 1
+    @poll.save
+    redirect_to polls_path
+
+  end
+
+  def downvote
+    @poll = Poll.find(params[:id])
+    @poll.updownvote -= 1
+    @poll.save
+    redirect_to polls_path
+
   end
 
   private

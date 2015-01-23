@@ -1,38 +1,9 @@
-<h2>All Polls</h2>
-<%= link_to 'New Poll', new_poll_path, :class => "btn btn-primary" %>
-<hr>
-<% @polls.order(created_at: :desc).each do |poll| %>
-    <div class="poll">
-      <h3><%= poll.question %></h3>
-      <table class="center table-striped poll">
-        <% poll.options.each do |option| %>
-          <tr>
-            <td class="col-sm-2">
-              <%= link_to 'pick', pick_option_path(id: option.id), method: :put, :class => "btn btn-xs btn-primary" %>
-              (<%= option.picks %>)
-            </td>
-            <th class="col-sm-4"><%= option.option_text %> &nbsp</th>
-            <td class="col-sm-5">
-              <div class="progress">
-                <div class="progress-bar" style="width: <%= option.percentage %>%;"></div>
-              </div>
-            </td>
-            <td class="col-sm-1">&nbsp<%= option.percentage %>%</td>
-          </tr>
-        <% end %>
-      </table>
-      <br>
-      <h4>Total Poll Picks: <%= poll.total_poll_picks %></h4>
-      <br>
-      <%= link_to 'Remove Poll', poll, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-primary" %>
-    </div>
-  <hr>
-<% end %>
-<%= link_to 'New Poll', new_poll_path, :class => "btn btn-primary" %>
-<br>
-<br>
+<%= link_to 'Make a New Poll', new_poll_path, :class => "btn" %>
 
-<!-- All options currently in database:<br>
-<% Option.all.each do |option| %>
-  <%= option.option_text %>  - Number of Picks: <%= option.picks %><br>
-<% end %> -->
+<% @polls.each do |poll| %>
+  <div class="poll-container">
+    <%= render 'poll', :poll => poll %>
+  </div>
+<% end %>
+
+

@@ -11,30 +11,15 @@
     <![endif]-->
   </head>
   <body>
-    <% unless action_name == "home" %>
-      <div class="navbar navbar-default navbar-fixed-top">
-    		<div class="container">
-  			  <div class="navbar-header">
-            <%= link_to "pollapick", root_path, class: "navbar-brand" %>
-  			  </div>
-  			  <!-- <div class="navbar-collapse collapse navbar-responsive-collapse">
-  			    <ul class="nav navbar-nav">
-  	      		<li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Help", help_path %></li>
-              <li><%= link_to "About", about_path %></li>
-              <li><%= link_to "Contact", contact_path %></li>
-  			    </ul>
-  			    <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Sign in", '#' %></li>
-  			    </ul>
-  			  </div> -->
-  			</div> 
-  		</div>
-    <% end %>
+    <div class="navbar">
+      <%= link_to "pollapick", root_path, class: "navbar-brand" %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    	<div class="jumbotron">
-      	<%= yield %>
-    	</div>
+    <%= yield %>
 
   </body>
 </html>

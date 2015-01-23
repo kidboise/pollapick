@@ -1,6 +1,11 @@
 Pollapick::Application.routes.draw do
   get "users/new"
-  resources :polls
+  resources :polls do
+    member do
+      put 'upvote'
+      put 'downvote'
+    end
+  end
 
   resources :options do
     member do
@@ -8,7 +13,7 @@ Pollapick::Application.routes.draw do
     end
   end
 
-  root  'static_pages#home'
+  root  'polls#index'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

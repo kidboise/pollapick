@@ -1,1 +1,2 @@
-$('#poll').html("<%= j (render 'poll', poll: poll) %>")
+$("#poll-<%= @option.poll.id %> .options-container").remove()
+$('#poll-<%= @option.poll.id %> .poll-options').append("<%= j (render 'shared/options', poll: @option.poll) %>")

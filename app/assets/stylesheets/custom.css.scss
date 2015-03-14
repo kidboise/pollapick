@@ -64,7 +64,7 @@ th, td {
 }
 
 .poll-container {
-  width: 768px;
+  max-width: 800px;
   margin-left:auto; 
   margin-right:auto;
 }
@@ -75,7 +75,7 @@ th, td {
   margin-top: 30px;
   padding: 5px;
   border: 2px solid #091333;
-  border-radius: 10px;
+  border-radius: 12px;
   float: left;
 }
 
@@ -87,14 +87,14 @@ th, td {
   padding: 5px;
   height: 100%;
   float: right;
-  margin-top: 60px;
+  margin-top: 15px;
   color: #091333;
 }
 
 .option {
   margin-left:auto; 
   margin-right:auto;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   width: 100%;
   height: 100%;
   border: 1px solid #091333;
@@ -124,7 +124,7 @@ th, td {
   font-size: 40px;
   background-color: #091333;
   color: #EBEBEB;
-  border-radius: 5px;
+  border-radius: 12px;
   padding: 10px;
   margin-bottom: 10px;
 }

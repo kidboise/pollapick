@@ -1,4 +1,5 @@
 Pollapick::Application.routes.draw do
+  devise_for :users
   get "users/new"
   resources :polls do
     member do
@@ -14,7 +15,7 @@ Pollapick::Application.routes.draw do
   end
 
   root  'polls#index'
-  match '/signup',  to: 'users#new',            via: 'get'
+  # match '/signup',  to: 'users#new',            via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

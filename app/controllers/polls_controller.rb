@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: :index
   # GET /polls
   def index
     @polls = Poll.all.sort_by { |poll| poll.updownvote }.reverse

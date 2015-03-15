@@ -41,7 +41,7 @@ class Option < ActiveRecord::Base
 	end
 
 	def check_votes user_id
-		vote = poll.options.joins(:votes).map{ |option| option.votes.find_by(user_id: user_id) }
+		vote = poll.options.joins(:votes).map{ |option| option.votes.find_by(user_id: user_id) }.compact
 		
 		if vote.any?
 			prev_option = vote.first.option

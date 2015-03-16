@@ -1,2 +1,3 @@
 $("#poll-<%= @option.poll.id %> .options-container").remove()
 $('#poll-<%= @option.poll.id %> .poll-options').append("<%= j (render 'shared/options', poll: @option.poll) %>")
+$('#option-<%= @option.id %> a').toggleClass("chosen")

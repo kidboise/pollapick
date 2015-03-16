@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314083258) do
+ActiveRecord::Schema.define(version: 20150316082646) do
 
   create_table "options", force: true do |t|
     t.string   "option_text"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20150314083258) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rating_votes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "poll_id"
+    t.string   "direction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rating_votes", ["poll_id"], name: "index_rating_votes_on_poll_id"
+  add_index "rating_votes", ["user_id"], name: "index_rating_votes_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

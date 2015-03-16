@@ -1,6 +1,6 @@
 <div class="options-container">
   <% poll.options.order(:picks).reverse.each do |option| %>
-    <% if option.votes.where(user_id: current_user.id).any? %>
+    <% if option.votes.where(user_id: current_user.try(:id)).any? %>
       <div class="option chosen" id="option-<%= option.id %>">
     <% else %>
       <div class="option" id="option-<%= option.id %>">

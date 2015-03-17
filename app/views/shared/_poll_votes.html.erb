@@ -1,0 +1,11 @@
+<% if vote = poll.rating_votes.find_by(user_id: current_user.try(:id)) %>
+  <div class="updownvote voted-<%= vote.direction %>">
+<% else %>
+  <div class="updownvote">
+<% end %>
+  <%= link_to "^", poll_rating_votes_path(poll.id, direction: "up"), method: :post, remote: true, :class => "btn-updownvote btn-updownvote-up" %>
+  <br>
+  <%= poll.updownvote %>
+  <br>
+  <%= link_to 'v', poll_rating_votes_path(poll.id, direction: "down"), method: :post, remote: true, :class => "btn-updownvote btn-updownvote-down" %>
+</div>

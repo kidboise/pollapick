@@ -2,10 +2,11 @@ Pollapick::Application.routes.draw do
   devise_for :users
   get "users/new"
   resources :polls do
-    member do
-      put 'upvote'
-      put 'downvote'
-    end
+    resources :rating_votes, only: [:create]
+    # member do
+    #   put 'upvote'
+    #   put 'downvote'
+    # end
   end
 
   resources :options do

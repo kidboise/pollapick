@@ -240,3 +240,20 @@ th, td {
 a.login-form-anchor{
   color: #000000;
 }
+
+.chosen{
+  a{
+    color: #6DDE2C;
+  }
+  .progress-bar{
+    background-color: #6DDE2C;
+  }
+}
+
+.voted-up .btn-updownvote-up{
+  color: #6DDE2C;
+}
+
+.voted-down .btn-updownvote-down{
+  color: #D44A35;
+}

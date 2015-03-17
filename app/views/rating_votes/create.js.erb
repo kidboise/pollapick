@@ -1,0 +1,2 @@
+$(".poll-<%= @poll.id %> .updownvote").remove()
+$('.poll-<%= @poll.id %>').append("<%= j (render 'shared/poll_votes', poll: @poll) %>")

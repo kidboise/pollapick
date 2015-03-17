@@ -1,15 +1,19 @@
 <div class="options-container">
   <% poll.options.order(:picks).reverse.each do |option| %>
-    <div class="option" id="option-<%= option.id %>">
-      <%= link_to 'pick', pick_option_path(id: option.id), remote: true, method: :put, :class => "btn-pick" %>
-      <div class="option-result">
-        <%= option.option_text %>
-        <br>
-        <div class="progress">
-          <div class="progress-bar" style="width: <%= option.percentage %>%;"><%= option.percentage %>%</div>
+    <% if option.votes.where(user_id: current_user.try(:id)).any? %>
+      <div class="option chosen" id="option-<%= option.id %>">
+    <% else %>
+      <div class="option" id="option-<%= option.id %>">
+    <% end %>
+        <%= link_to 'pick', pick_option_path(id: option.id), remote: true, method: :put, :class => "btn-pick" %>
+        <div class="option-result">
+          <%= option.option_text %>
+          <br>
+          <div class="progress">
+            <div class="progress-bar" style="width: <%= option.percentage %>%;"><%= option.percentage %>%</div>
+          </div>
         </div>
       </div>
-    </div>
   <% end %>
   <h3>Total Poll Picks: <%= poll.total_poll_picks %></h3>
 </div>

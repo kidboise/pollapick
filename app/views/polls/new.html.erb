@@ -2,3 +2,6 @@
 
 <%= render 'form' %>
 
+<script type="text/javascript">
+    $(".tags-select").select2({ tags: <%== @tags %>, selectOnBlur: true });
+</script>

@@ -7,7 +7,17 @@
         <br>
     <% end %>
     <%= f.submit '+ Option', :name => "add_option", :class => "btn-sm" %>
-    <br>   
+    <br>
+    <br>
+    <h3>Tags:</h3>
+    <div class="field">
+        <%= f.label :tag_list, "Select one of the existing or create your own:" %><br />
+        <%= f.text_field :tag_list, class: "tags-select" %>
+    </div>
+    <br>
+    <br>
+    <%= f.submit nil, class: "btn btn-primary" %>
+    <%= link_to 'Back', root_path, class: "btn btn-primary" %>
   </div>
   <br>
   <%= f.submit nil, :class => "btn" %>

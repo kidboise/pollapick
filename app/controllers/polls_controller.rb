@@ -3,11 +3,8 @@ class PollsController < ApplicationController
   before_action :authenticate_user!, except: :index
   # GET /polls
   def index
-    if params[:newest]
-      @polls = Poll.order('created_at DESC').all
-    else
-      @polls = Poll.all.sort_by { |poll| poll.updownvote }.reverse
-    end
+    @polls = params[:tag] ? Poll.tagged_with(params[:tag]) : Poll.all
+    @polls.sort_by { |poll| params[:newest] ? poll.created_at : poll.updownvote }.reverse
   end
 
   # GET /polls/1
@@ -18,6 +15,7 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     @poll = Poll.new
+    @tags = ActsAsTaggableOn::Tag.all.pluck(:name).to_a
     2.times { @poll.options.build }
   end
 
@@ -77,7 +75,7 @@ class PollsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poll_params
-      params.require(:poll).permit(:id, :question,
+      params.require(:poll).permit(:id, :question, :tag_list,
         options_attributes: [:id, :option_text, :percentage, :poll_id, :_destroy]
       )
     end

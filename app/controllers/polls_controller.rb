@@ -33,7 +33,7 @@ class PollsController < ApplicationController
     else
       @poll.save
       flash[:notice] = "Poll is public!"
-      redirect_to polls_path and return
+      redirect_to poll_path(@poll) and return
     end
     render action: 'new'
   end

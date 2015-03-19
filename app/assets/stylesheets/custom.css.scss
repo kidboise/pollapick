@@ -5,19 +5,15 @@
 
 html {  
   font-family: Helvetica Neue;
+  font-size: 8px;
   background-color: #EBEBEB;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   color: #091333;
-
 }
+
 body {
   margin: 0;
-  text-align: center;
-}
-
-form { 
-  display: inline-block; 
   text-align: center;
 }
 
@@ -32,10 +28,9 @@ a {
 }
 
 h1 {
-  font-family: "Harabara";
-  font-size: 70px;
-  padding: 15px;
+  font-size: 50px;
   margin-bottom: 0px;
+  font-weight: 100;
 }
 
 h2 {
@@ -44,10 +39,18 @@ h2 {
   font-size: 40px;
   font-weight: 100;
 }
+
 h3 {
   margin-top: 10px;
   margin-bottom: 15px;
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+h4 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 20px;
   font-weight: 200;
 }
 
@@ -63,8 +66,56 @@ th, td {
   padding: 0px;
 }
 
+.form {
+  max-width: 700px;
+  margin-left:auto; 
+  margin-right:auto;
+  text-align: center;
+  margin-top: 30px;
+  padding: 5px;
+  border: 2px solid #091333;
+  border-radius: 12px;
+}
+
+.form-field {
+  margin-left:auto; 
+  margin-right:auto;
+  margin-bottom: 2px;
+  width: 99%;
+  height: 100%;
+  border: 1px solid #091333;
+  background-color: #EBEBEB;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.form-field-login {
+  margin-left:auto; 
+  margin-right:auto;
+  margin-bottom: 2px;
+  width: 50%;
+  height: 30px;
+  border: 1px solid #091333;
+  background-color: #EBEBEB;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.form-field-question {
+  margin-left:auto; 
+  margin-right:auto;
+  margin-bottom: 2px;
+  width: 99%;
+  height: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 100;
+  background-color: #EBEBEB;
+  border: none;
+}
+
 .poll-container {
-  width: 768px;
+  max-width: 800px;
   margin-left:auto; 
   margin-right:auto;
 }
@@ -75,7 +126,7 @@ th, td {
   margin-top: 30px;
   padding: 5px;
   border: 2px solid #091333;
-  border-radius: 10px;
+  border-radius: 12px;
   float: left;
 }
 
@@ -87,14 +138,20 @@ th, td {
   padding: 5px;
   height: 100%;
   float: right;
-  margin-top: 60px;
+  margin-top: 15px;
   color: #091333;
+}
+
+.poll-footer {
+  padding: 5px;
+  vertical-align: middle;
+  float: bottom;
 }
 
 .option {
   margin-left:auto; 
   margin-right:auto;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   width: 100%;
   height: 100%;
   border: 1px solid #091333;
@@ -122,20 +179,62 @@ th, td {
 
 .btn {
   font-size: 40px;
+  font-family: "Harabara";
   background-color: #091333;
   color: #EBEBEB;
-  border-radius: 5px;
+  border-radius: 12px;
   padding: 10px;
   margin-bottom: 10px;
+  border: none;
+}
+
+.btn-navbar {
+  font-size: 25px;
+  background-color: #091333;
+  color: #EBEBEB;
+  border-radius: 10px;
+  border: 1px solid; 
+  padding: 5px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+.btn-navbar:hover {
+  color: #FFFFFF;
 }
 
 .btn:hover {
   color: #FFFFFF;
 }
 
+.btn-sm {
+  font-size: 30px;
+  font-family: "Harabara";
+  background-color: #091333;
+  color: #EBEBEB;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.btn-sm:hover {
+  color: #FFFFFF;
+}
+
 .btn-xs {
-  font-size: 12px;
-  padding: 4px;
+  font-size: 25px;
+  font-family: "Harabara";
+  background-color: #091333;
+  color: #EBEBEB;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.btn-xs:hover {
+  color: #FFFFFF;
 }
 
 .col-12 {
@@ -246,6 +345,7 @@ a.login-form-anchor{
     color: #6DDE2C;
   }
   .progress-bar{
+    color: #091333;
     background-color: #6DDE2C;
   }
 }
@@ -264,4 +364,8 @@ a.login-form-anchor{
 
 .tags-select{
   width: 100%;
+}
+
+form label, .poll p{
+  font-size: 15px;
 }

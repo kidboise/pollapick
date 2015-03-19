@@ -4,7 +4,7 @@ class PollsController < ApplicationController
   # GET /polls
   def index
     @polls = params[:tag] ? Poll.tagged_with(params[:tag]) : Poll.all
-    @polls.sort_by { |poll| poll.updownvote }.reverse
+    @polls.sort_by { |poll| params[:newest] ? poll.created_at : poll.updownvote }.reverse
   end
 
   # GET /polls/1
@@ -16,7 +16,7 @@ class PollsController < ApplicationController
   def new
     @poll = Poll.new
     @tags = ActsAsTaggableOn::Tag.all.pluck(:name).to_a
-    4.times { @poll.options.build }
+    2.times { @poll.options.build }
   end
 
   # GET /polls/1/edit

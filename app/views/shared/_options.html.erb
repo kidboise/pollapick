@@ -1,5 +1,5 @@
 <div class="options-container">
-  <% poll.options.order(:picks).reverse.each do |option| %>
+  <% poll.options.each do |option| %>
     <% if option.votes.where(user_id: current_user.try(:id)).any? %>
       <div class="option chosen" id="option-<%= option.id %>">
     <% else %>
@@ -15,5 +15,16 @@
         </div>
       </div>
   <% end %>
-  <h3>Total Poll Picks: <%= poll.total_poll_picks %></h3>
+  <div class="poll-footer">
+    &nbsp<br>
+    <h3>
+      Total Poll Picks: <%= poll.total_poll_picks %>
+      <% if controller_name == "polls" && action_name == "show" %>
+        <%= link_to "Back", polls_path, :class => "btn-xs" %>
+      <% else %>
+        <%= link_to "View Poll", poll_path(poll), :class => "btn-xs" %>
+      <% end %>
+    </h3>
+  </div>
+
 </div>

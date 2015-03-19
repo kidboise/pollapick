@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h1>Viewing Poll:</h1>
+<div class="poll-container poll-<%= @poll.id %>">
+	<%= render 'shared/poll', :poll => @poll %>
+</div>
 
-<h2>Here's your poll:</h2>
-<% @poll %>
-
-<img src="/assets/underconstruction.gif", alt="under construction" />
-
-<br>
-<br>
-<%= link_to 'Back', polls_path, :class => "btn btn-primary" %>

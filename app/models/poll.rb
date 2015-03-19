@@ -5,6 +5,10 @@ class Poll < ActiveRecord::Base
 
 	accepts_nested_attributes_for :options, :allow_destroy => true
 
+  acts_as_taggable
+
+  validates_presence_of :tag_list
+
 	def total_poll_picks
 		@picks = []
 		self.options.each do |option|

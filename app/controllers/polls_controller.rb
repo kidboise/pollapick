@@ -3,7 +3,11 @@ class PollsController < ApplicationController
   before_action :authenticate_user!, except: :index
   # GET /polls
   def index
-    @polls = Poll.all.sort_by { |poll| poll.updownvote }.reverse
+    if params[:newest]
+      @polls = Poll.order('created_at DESC').all
+    else
+      @polls = Poll.all.sort_by { |poll| poll.updownvote }.reverse
+    end
   end
 
   # GET /polls/1

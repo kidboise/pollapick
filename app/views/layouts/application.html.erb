@@ -16,16 +16,14 @@
         <%= current_user.name %>
       <% end %> -->
       <%= link_to "pollapick", root_path, class: "navbar-brand" %>
-      <%= link_to 'Newest', root_path, :class => "btn-navbar" %>
+      <%= link_to 'Newest', polls_path, :sort => "newest", :class => "btn-navbar" %>
       <%= link_to 'Popular', root_path, :class => "btn-navbar" %>
       <%= current_user ? (link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-navbar") : (link_to 'Sign In', new_user_session_path, class: "btn-navbar") %>
 
     </div>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
+    <br>  
     <%= yield %>
 
   </body>

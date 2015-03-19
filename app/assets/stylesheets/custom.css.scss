@@ -5,6 +5,7 @@
 
 html {  
   font-family: Helvetica Neue;
+  font-size: 8px;
   background-color: #EBEBEB;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -27,9 +28,9 @@ a {
 }
 
 h1 {
-  font-family: "Harabara";
   font-size: 50px;
   margin-bottom: 0px;
+  font-weight: 100;
 }
 
 h2 {
@@ -42,7 +43,14 @@ h2 {
 h3 {
   margin-top: 10px;
   margin-bottom: 15px;
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+h4 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 20px;
   font-weight: 200;
 }
 
@@ -75,6 +83,18 @@ th, td {
   margin-bottom: 2px;
   width: 99%;
   height: 100%;
+  border: 1px solid #091333;
+  background-color: #EBEBEB;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.form-field-login {
+  margin-left:auto; 
+  margin-right:auto;
+  margin-bottom: 2px;
+  width: 50%;
+  height: 30px;
   border: 1px solid #091333;
   background-color: #EBEBEB;
   border-radius: 12px;
@@ -120,6 +140,12 @@ th, td {
   float: right;
   margin-top: 15px;
   color: #091333;
+}
+
+.poll-footer {
+  padding: 5px;
+  vertical-align: middle;
+  float: bottom;
 }
 
 .option {

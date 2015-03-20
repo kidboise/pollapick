@@ -28,6 +28,7 @@ class PollsController < ApplicationController
     @poll = Poll.new(poll_params)
     if params[:add_option]
       @poll.options.build
+      @tags = ActsAsTaggableOn::Tag.all.pluck(:name).to_a
     else
       @poll.save
       flash[:notice] = "Poll is public!"

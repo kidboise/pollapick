@@ -3,7 +3,7 @@
   <div class="poll-options">
     <%= render "shared/options", poll: poll %>
   </div>
-  <p class="tags">Tags: <%= raw poll.tag_list.map { |t| link_to "##{t}", tag_path(tag: t) }.join(', ') %></p>
+  <p><%= raw poll.tag_list.map { |t| link_to "##{t}", tag_path(tag: t), :class => "btn-tag" }.join(' ') %></p>
 </div>
 
 <%= render "shared/poll_votes", poll: poll %>

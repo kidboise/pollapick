@@ -1,18 +1,16 @@
 <%= form_for(@poll) do |f| %> 
 
   <div class="form">
-    <%= f.text_field :question, :class => 'form-field-question', :placeholder =>"Type poll question here." %>   
+    <%= f.text_field :question, :class => 'form-field-question', :placeholder => "Type poll question here." %>   
     <%= f.fields_for :options do |ff| %>
-        <%= ff.text_area :option_text, :class => 'form-field', :placeholder =>"Type option here." %>           
+        <%= ff.text_area :option_text, :class => 'form-field', :placeholder => "Type option here." %>           
         <br>
     <% end %>
     <%= f.submit '+ Option', :name => "add_option", :class => "btn-sm" %>
     <br>
     <br>
-    <h3>Tags:</h3>
-    <div class="field">
-        <%= f.label :tag_list, "Select one of the existing or create your own:" %><br />
-        <%= f.text_field :tag_list, class: "tags-select" %>
+    <h3>Leave out hashtags--they're added automatically:</h3>
+      <%= f.text_field :tag_list, :class => "tags-select", :placeholder => "Add tags here." %>
     </div>
     <br>
     <br>

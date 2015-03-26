@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319183228) do
+ActiveRecord::Schema.define(version: 20150326090503) do
+
+  create_table "authorizations", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "profile_page"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
 
   create_table "options", force: true do |t|
     t.string   "option_text"

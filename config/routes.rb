@@ -1,5 +1,7 @@
 Pollapick::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+             :omniauth_callbacks => 'omniauth_callbacks',
+           }
   get "users/new"
   resources :polls do
     resources :rating_votes, only: [:create]

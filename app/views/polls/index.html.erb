@@ -15,3 +15,5 @@
     <%= render 'shared/poll', :poll => poll %>
   </div>
 <% end %>
+
+<%= render("shared/social_buttons_feed") if user_signed_in? %>

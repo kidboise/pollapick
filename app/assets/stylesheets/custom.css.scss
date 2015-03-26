@@ -400,3 +400,17 @@ a.login-form-anchor{
 form label, .poll p{
   font-size: 15px;
 }
+
+.facebook{
+  background: #3B5998; 
+  text-decoration: none;
+  padding: 0.5em;
+  color: #fff;
+  font-size: 10px;
+  &:hover{
+    color: #eee;
+  }
+  & .fa{
+    padding: 0.5em;
+  }
+}

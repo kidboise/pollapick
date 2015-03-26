@@ -27,6 +27,9 @@ gem 'jbuilder', '1.0.2'
 gem 'devise'
 gem 'acts-as-taggable-on'
 gem "select2-rails"
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

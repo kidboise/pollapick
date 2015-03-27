@@ -1,0 +1,24 @@
+<a class="facebook" href="#" onclick="facebookShare()"><i class="fa fa-facebook-square"></i>Share</a>
+<br>
+<br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="twitter" data-count="none" data-url="<%= poll_url(poll) %>">Tweet</a>
+<br>
+<br>
+<a href="https://www.pinterest.com/pin/create/button/
+  ?url=<%= poll_url(poll) %>
+  &description=Find out the answer and vote on PollaPick website!"
+  data-pin-do="buttonPin"
+  data-pin-config="above">
+  <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+</a>
+
+<script type="text/javascript">
+  function facebookShare(){
+    FB.ui({
+      method: 'feed',
+      link: "<%= Rails.env == 'development' ? 'http://example.com/' : poll_url(poll) %>",
+      name: "<%= poll.question %>",
+      description: 'Find out the answer and vote on PollaPick website!',
+    }, function(response){});
+  }
+</script>

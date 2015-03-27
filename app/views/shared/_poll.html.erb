@@ -4,6 +4,7 @@
     <%= render "shared/options", poll: poll %>
   </div>
   <p><%= raw poll.tag_list.map { |t| link_to "##{t}", tag_path(tag: t), :class => "btn-tag" }.join(' ') %></p>
+  <%= render("shared/social_buttons", poll: poll) if user_signed_in? %>
 </div>
 
 <%= render "shared/poll_votes", poll: poll %>

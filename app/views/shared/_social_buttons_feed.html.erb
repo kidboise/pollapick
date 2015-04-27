@@ -6,7 +6,7 @@
 <br>
 <a href="https://www.pinterest.com/pin/create/button/
   ?url=<%= root_url %>
-  &description=Find out the answers and vote on PollaPick website!"
+  &description=Anonymously vote on polls and make your own at Pollapick"
   data-pin-do="buttonPin"
   data-pin-config="above">
   <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
@@ -17,8 +17,8 @@
     FB.ui({
       method: 'feed',
       link: "<%= Rails.env == 'development' ? 'http://example.com/' : root_url %>",
-      name: "PollaPick",
-      description: 'Find out the answers and vote on PollaPick website!',
+      name: "Pollapick",
+      description: 'Anonymously vote on polls and make your own at Pollapick',
     }, function(response){});
   }
 </script>

@@ -55,8 +55,12 @@
       <%= link_to 'New Poll', new_poll_path, :class => "btn-navbar" %>
 <!--       <%= link_to 'Newest', polls_path, :sort => "newest", :class => "btn-navbar" %>
       <%= link_to 'Popular', root_path, :class => "btn-navbar" %> -->
-      <%= current_user ? (link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-navbar") : (link_to 'Sign In', new_user_session_path, class: "btn-navbar") %>
-
+      <% if user_signed_in? %>
+        <%= link_to 'My Polls', polls_path(user: current_user.id), :class => "btn-navbar" %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn-navbar" %>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path, class: "btn-navbar" %>
+      <% end %>
     </div>
     <br>
     <br>

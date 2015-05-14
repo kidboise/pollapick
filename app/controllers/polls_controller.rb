@@ -4,7 +4,7 @@ class PollsController < ApplicationController
   # GET /polls
   def index
     @polls = params[:tag] ? Poll.tagged_with(params[:tag]).order(updownvote: :desc) : Poll.all.order(updownvote: :desc)
-
+    @polls = @polls.owned_by(params[:user])
   end
 
   # GET /polls/1
@@ -30,9 +30,13 @@ class PollsController < ApplicationController
       @poll.options.build
       @tags = ActsAsTaggableOn::Tag.all.pluck(:name).to_a
     else
-      @poll.save
-      flash[:notice] = "Poll is public!"
-      redirect_to poll_path(@poll) and return
+      @poll.creator_id = current_user.id
+      if @poll.save
+        flash[:notice] = "Poll is public!"
+        redirect_to poll_path(@poll) and return
+      else
+        flash[:error] = "Something went wrong"
+      end
     end
     render action: 'new'
   end

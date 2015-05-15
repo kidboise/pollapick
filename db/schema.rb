@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326090503) do
+ActiveRecord::Schema.define(version: 20150514101140) do
 
   create_table "authorizations", force: true do |t|
     t.integer  "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150326090503) do
     t.integer  "updownvote", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "creator_id"
   end
 
   create_table "rating_votes", force: true do |t|

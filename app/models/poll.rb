@@ -2,15 +2,12 @@ class Poll < ActiveRecord::Base
 	has_many :options, dependent: :destroy
 	has_many :rating_votes
   has_many :users, through: :rating_votes
-  belongs_to :creator, class_name: "User"
 
 	accepts_nested_attributes_for :options, :allow_destroy => true
 
   acts_as_taggable
 
   validates_presence_of :tag_list
-
-  scope :owned_by, ->(user_id) { where(creator_id: user_id) if user_id }
 
 	def total_poll_picks
 		@picks = []
